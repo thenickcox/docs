@@ -25,6 +25,21 @@ option "otherwise" do
       message "Click the **Add SSH Key** Button"
       message "Enter a title for your key, like: 'My Laptop Key'"
       message "Enter your ssh key into the key box"
+        option "If you are on windows" do
+          verify do
+            message "open notepad"
+            message "open your file called id_rsa.pub"
+            result "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOoXjJIzURhC0cXsF2vrmjgI5ZT98Nyyg9BcjNVFvf+7SjVsn8sir1No6ZpHAa77i8Z0SdmoMT21FX4P0n4WAhNLcvjd0m1f8zMHttvxf7/iRIrnASaKNCpDOeh+wXLCbUyZtP4aqa63oXpMJXwqW1WYZICqdliFDMAOaYQ1eDGL3fMIGxNyErWoWSGACxY9OMdMLcLsqpXF1M74IUU72SfwfqyWMD8A3PlWLLAn3tWU1AM1qJi6myyhniBgbCPdUtuVcVsNzVNp1o1F2o/com65i3gY44u8lpqc1MXe6MZiTFBUKL7A9blAm/qeXMC+7iI7A6AlVWR8WKl8KKE6yf <your email or machine name>"
+           end
+        end
+        option "If you are on mac or linux" do
+          verify do
+            console "cat ~/.ssh/id_rsa.pub"
+            result "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOoXjJIzURhC0cXsF2vrmjgI5ZT98Nyyg9BcjNVFvf+7SjVsn8sir1No6ZpHAa77i8Z0SdmoMT21FX4P0n4WAhNLcvjd0m1f8zMHttvxf7/iRIrnASaKNCpDOeh+wXLCbUyZtP4aqa63oXpMJXwqW1WYZICqdliFDMAOaYQ1eDGL3fMIGxNyErWoWSGACxY9OMdMLcLsqpXF1M74IUU72SfwfqyWMD8A3PlWLLAn3tWU1AM1qJi6myyhniBgbCPdUtuVcVsNzVNp1o1F2o/com65i3gY44u8lpqc1MXe6MZiTFBUKL7A9blAm/qeXMC+7iI7A6AlVWR8WKl8KKE6yf <your email or machine name>"
+           end
+
+        end
+
       message "Click on the green **Add Key** button"
     end
 
