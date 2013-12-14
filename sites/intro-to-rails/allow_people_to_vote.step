@@ -24,15 +24,16 @@ steps {
   end
 
   step "Add the create method to the controller" do
-    message "Add the following method to `Vote` in `app/controllers/votes_controller.rb`:"
+    message "When you ran `rails generate resource vote topic_id:integer` a few steps back, it created
+      a file called `votes_controller.rb` in the `app/controllers` directory. Open that file in your
+      text editor. There will already be a create method in that file. Delete that whole method
+      (everything from `def create` and `end`), and write a new `create` method that looks like this:"
     source_code :ruby, <<-RUBY
-class VotesController < ApplicationController
-  def create
-    topic = Topic.find(params[:topic_id])
-    vote = topic.votes.build
-    vote.save!
-    redirect_to(topics_path)
-  end
+def create
+  topic = Topic.find(params[:topic_id])
+  vote = topic.votes.build
+  vote.save!
+  redirect_to(topics_path)
 end
     RUBY
   end
