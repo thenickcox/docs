@@ -1,0 +1,43 @@
+message "Github is a great way to keep and share your code, and necessary for open source developers."
+message "You will need this to deploy to Ninefold, or to share your code."
+
+option "Do you already have a Github account?" do
+  link_without_toc 'choose_a_hosting_service'
+end
+
+option "otherwise" do
+  step "Visit the Github web site" do
+    url "http://github.com"
+  end
+
+  important "Use the same email address for ninefold, heroku, git, github, and ssh."
+
+  step "Sign up for an account" do
+    message "Enter your desired username, email address, and password"
+    message "Click on the green **Sign up for Github** button"
+    message "Choose the Free subscription plan"
+    message "Click on the green **Finish sign up** button"
+    
+    option "Add Your SSH key" do
+      message "Click on your username in the upper right-hand corner"
+      message "Click on the gray **Edit Your Profile** button"
+      message "Click the 'SSH Keys' link"
+      message "Click the **Add SSH Key** Button"
+      message "Enter a title for your key, like: 'My Laptop Key'"
+      message "Enter your ssh key into the key box"
+      message "Click on the green **Add Key** button"
+    end
+
+    option "Create a new repository" do
+      message "Click on the green **New repository** button"
+      message "Pick a name for your repository"
+      message "Click on the green **Create repository** button"
+      message "Click the grey **SSH** button"
+      message "Copy the SSH link that looks like this: **git@github.com:YourUsername/YourRepoName.git**"
+      message "Type the commands under **Push an existing repository from the command line** into your terminal window in your Rails application directory"
+    end
+  end
+end
+
+next_step 'choose_a_hosting_service'
+
