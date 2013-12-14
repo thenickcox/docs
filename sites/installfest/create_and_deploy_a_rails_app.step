@@ -212,8 +212,10 @@ step "Deploy your app to Heroku" do
     message "Remove this line and replace it with:"
 
     source_code :ruby, <<-RUBY
-      root 'users#index'
+      root to: 'users#index'
     RUBY
+
+    Make sure that you remove the `#` sign before the word `root`. Otherwise, Ruby will treat this as a comment, which means it won't interpret it.
   end
 
   step "Add the changes to git" do
