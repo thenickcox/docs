@@ -74,12 +74,13 @@ git commit -m "Some helpful message for your future self"
 
   step "Run database migrations on Heroku" do
     console "heroku run rake db:migrate"
-    message "This tells Heroku to run your migrations on its database, like running rake db:migrate locally. Heroku's database is separate from the one on your computer, which means it needs to be updated every time you make changes to the structure of your database.  It also means that you'll not see any of the data you entered into the sqlite3 database on your computer."
+    message "This tells Heroku to run your migrations on its database, like running rake db:migrate locally."
   end
 
   step "Visit your application" do
     console "heroku open"
     message "This opens the new application in your browser."
+    tip "**Where did my data go?** When you deploy your code to Heroku, the code will be identical to what is on your local machine, but Heroku has its own database that won't be the same as yours. (This means that if `heroku open` opens a page in your browser that doesn't have any errors on it, you did everything right!) If you think about it, this is a helpful feature. Often, testing features you've built locally requires adding a lot of test data you don't want in your production environment."
   end
 end
 
